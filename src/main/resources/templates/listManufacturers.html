@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <h1 th:if="${hasErrors}" th:text="${error}"></h1>
+</div>
+
+<div class="container mb-4">
+
+
+        <ul>
+            <li th:each="manufacturer : ${manufacturers}">
+                <input type="radio" name="manufacturer" th:value="${manufacturer.getName()}"><th:block th:text="${manufacturer.getName()}"/>
+                <div class="text-right">
+                    <form  th:action="@{'/manufacturers/delete/{id}' (id=${manufacturer.getId()})}" th:method="DELETE">
+                        <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash">Delete</i></button>
+                    </form>
+                    <a  th:href="@{'/manufacturers/edit-form/{id}' (id=${manufacturer.getId()})}"
+                        th:method="POST" th:value="${manufacturer.getId()}"
+                        class="btn btn-sm btn-info"><i class="fa fa-trash">Edit</i></a>
+
+                </div>
+            </li>
+        </ul>
+
+    <div class="col mb-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <a href="/manufacturers/add-form" class="btn btn-block btn-dark">Add new manufacturer</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

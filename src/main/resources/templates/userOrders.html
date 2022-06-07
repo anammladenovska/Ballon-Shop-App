@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <section>
+
+        <h2>Order Lists</h2>
+
+        <form th:method="POST" th:action="@{/orders}" >
+            <ul>
+                <li th:text="${color}"></li>
+                <li th:text="${size}"></li>
+                <li th:text="${clientName}"></li>
+                <li th:text="${clientAddress}"></li>
+                <li th:text="${ipAddress}"></li>
+                <li th:text="${clientBrowser}"></li>
+            </ul>
+            <br/>
+
+        </form>
+    </section>
+
+</head>
+<body>
+
+</body>
+</html>
